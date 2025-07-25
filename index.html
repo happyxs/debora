@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Débora 💙</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Baloo 2', cursive;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-image: url('URL_DA_IMAGEM_AQUI'); /* coloque a imagem de fundo aqui */
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #1f3b73;
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(135deg, #005bbb, #0077cc);
+      padding: 30px 20px;
+      text-align: center;
+      color: white;
+      font-size: 2.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .content {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .moment {
+      margin-bottom: 40px;
+      background: rgba(255,255,255,0.95);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .moment:hover { transform: scale(1.01); }
+    .moment h2 { color: #004d99; margin-bottom: 10px; }
+    .moment img {
+      width: 100%;
+      height: 500px;
+      object-fit: contain;
+      border-radius: 12px;
+      margin-top: 15px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .highlight {
+      background: #e0f0ff;
+      padding: 10px;
+      border-left: 6px solid #0077cc;
+      font-weight: bold;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+    .game-section {
+      background: linear-gradient(to right, #e6f0ff, #d0e4ff);
+      border: 2px dashed #1f3b73;
+      border-radius: 20px;
+      padding: 30px 20px;
+      margin-top: 50px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    }
+    .game-section input {
+      padding: 10px;
+      width: 100%;
+      font-size: 1rem;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    .button {
+      background: linear-gradient(to right, #005bbb, #0077cc);
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background: linear-gradient(to right, #004080, #0066b3);
+    }
+    .surprise-box {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .hidden-message {
+      display: none;
+      font-size: 1.4rem;
+      margin-top: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .cat {
+      width: 150px;
+      margin-top: 10px;
+      animation: float 2s infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      background: #005bbb;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 10px 10px 0 0;
+    }
+    .moment ul {
+      padding-left: 20px;
+    }
+    .moment ul li {
+      margin-bottom: 5px;
+    }
+    @media (max-width: 768px) {
+      .moment img {
+        max-height: 250px;
+      }
+      .button {
+        width: 100%;
+      }
+    }
+
+    /* Corações */
+    .heart {
+      position: fixed;
+      top: -30px;
+      width: 40px;
+      height: 40px;
+      background: url('img/coracao.png') no-repeat center/contain;
+      z-index: 0;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-30px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    /* Jumpscare */
+    #jumpscare {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: none;
+    }
+    #jumpscare img {
+      max-width: 90%;
+      max-height: 90%;
+      animation: flash 0.5s ease-in-out;
+    }
+    @keyframes flash {
+      0% { transform: scale(0.5); opacity: 0; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+
+    .shake {
+      animation: shake 0.4s;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-5px, 5px); }
+      50% { transform: translate(5px, -5px); }
+      75% { transform: translate(-5px, 5px); }
+      100% { transform: translate(0, 0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Jumpscare -->
+  <div id="jumpscare"><img src="img/gojo.jpeg" alt="Gojo Jumpscare"></div>
+  <audio id="jumpscare-audio" src="audio/jump.wav" preload="auto"></audio>
+
+  <header>💙 Missão: Conquistar Débora 💙</header>
+
+  <div class="content">
+    <div class="moment">
+      <h2>📅 Nossos Encontros Incríveis</h2>
+      <ul>
+        <li>🛍️ Shopping + Livraria (e aquele livro do bixo ruim que amaldiçoou minha corrente! 😂) + Parque 🎡</li>
+        <li>🎬 Cinema (onde eu dei aquele cochilo estratégico no seu colo 😴💙)</li>
+        <li>📚 Biblioteca de SP + Espetinho</li>
+      </ul>
+      <div class="highlight">Resultado: 3 encontros, 3 beijos. Coincidência? Acho que não 😏</div>
+    </div>
+
+    <div class="moment">
+      <h2>🔮 A Maldição do Livro</h2>
+      <p>Lembra que você tirou umas cartas de tarot daquele livro na livraria? E logo depois minha corrente quebrou? 😳</p>
+      <p>TÁ LAÇADO E AMARRADO!</p>
+    </div>
+
+    <div class="moment">
+      <h2>📸 Galeria de Momentos</h2>
+      <p>As melhores fotos que guardo com carinho:</p>
+      <img src="img/debo.jpg" alt="Foto 1">
+      <img src="img/debo1.jpg" alt="Foto 2">
+      <img src="img/debo2.jpg" alt="Foto 3">
+      <img src="img/debo4.jpg" alt="Foto 4">
+      <img src="img/debo5.jpg" alt="Foto 5">
+      <img src="img/debo3bio.jpg" alt="Biblioteca">
+    </div>
+
+    <div class="game-section">
+      <h2>👩‍⚕️ Missão: Médica do Exército</h2>
+      <p>Responda para desbloquear o jaleco da vitória(sem usar gpt ehm):</p>
+      <p><strong>((729 × 43) ÷ (3³) + 2¹⁰ - √144)</strong></p>
+      <input type="text" id="answer">
+      <button class="button" onclick="checkAnswer()">Responder</button>
+      <p id="response"></p>
+    </div>
+
+    <div class="moment">
+      <h2>📦 Stitch e o Pedido</h2>
+      <p>Não esqueci do Stitch. Ele tá vindo aí... talvez com algo mais especial junto 👀💍</p>
+      <img src="img/stiti.jpeg" alt="">
+    </div>
+
+    <div class="moment">
+      <h2>🎥 Pixar + Ratatouille</h2>
+      <p>Aquela foto que você tirou minha com o Ratatouille... não deixou eu invadir o setor da esposição... VOU DENUNCIAR, DEIXA EU SER FELIZ PÔKKKK🐭📸</p>
+      <img src="img/rato.jpg" alt="">
+    </div>
+
+    <div class="moment">
+      <h2>💬 Coisas Importantes</h2>
+      <ul>
+        <li>Você é linda demais! 😍</li>
+        <li>Vou sentir muito sua falta... tipo, muito mesmo 💙</li>
+        <li>Teus sorrisos nos meus “LEGALLL” são minha fraqueza kkk</li>
+        <li><strong>Espero ver você na minha formatura ehm! 🎓</strong></li>
+        <img src="img/formatura-capa.jpg" alt="">
+      </ul>
+    </div>
+
+    <div class="surprise-box">
+      <h2>🎁 Caixa Surpresa Final</h2>
+      <button class="button" onclick="revealMessage()">Abrir agora?</button>
+      <div class="hidden-message" id="specialMessage">
+        <img src="img/maxresdefault.jpg" class="cat">
+        <p>Essa mensagem só será liberada no dia <strong>31</strong>... aguenta coração 💙</p>
+      </div>
+      <p>TODA BOBINHA</p>
+    </div>
+  </div>
+  </div>
+  
+
+  <footer>
+    Cada momento com você vale ouro. Até breve, Débora 💙
+  </footer>
+
+  <script>
+    function checkAnswer() {
+      const answer = document.getElementById("answer").value;
+      const response = document.getElementById("response");
+      const jumpscare = document.getElementById("jumpscare");
+      const audio = document.getElementById("jumpscare-audio");
+      const body = document.body;
+
+      if (answer.trim() === "2173") {
+        response.innerHTML = "✔️ Isso aí! Você vai arrasar no concurso, doutora Débora! 💉💙";
+      } else {
+        response.innerHTML = "❌ Errrrrrou kkkk mas você é linda do mesmo jeito 🤓 A FARDA VEM DEBORAKKK";
+        jumpscare.style.display = "flex";
+        audio.currentTime = 0;
+        audio.play();
+        body.classList.add("shake");
+
+        setTimeout(() => {
+          jumpscare.style.display = "none";
+          body.classList.remove("shake");
+        }, 1500);
+      }
+    }
+
+    function revealMessage() {
+      const today = new Date();
+      const target = new Date("2025-07-26T00:00:00");
+      const box = document.getElementById("specialMessage");
+      if (today >= target) {
+        box.innerHTML = `
+          <img src='img/maxresdefault.jpg' class='cat'>
+          <p><strong>Débora... eu ainda tô com aqueles dois anéis 💍. Se quando eu voltar, você ainda sentir algo... me espera? 💙</strong></p>
+        `;
+        box.style.display = 'block';
+      } else {
+        alert("Surpresa bloqueada até às 00:00 de hoje...! 😬");
+      }
+    }
+
+    // Corações caindo
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${2 + Math.random() * 3}s`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 300);
+  </script>
+</body>
+</html>
