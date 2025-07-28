@@ -52,7 +52,7 @@ class Paper {
     });
 
     // Touch move
-    document.addEventListener('touchmove', (e) => {
+    window.addEventListener('touchmove', (e) => {
       if (e.touches.length > 0) {
         const touch = e.touches[0];
         updatePosition(touch.clientX, touch.clientY);
