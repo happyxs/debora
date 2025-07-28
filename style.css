@@ -65,3 +65,7 @@ p {
   user-select: none;
   
 }
+
+.paper {
+  touch-action: none;
+}
